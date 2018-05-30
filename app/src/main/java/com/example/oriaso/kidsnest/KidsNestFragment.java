@@ -64,7 +64,7 @@ public class KidsNestFragment extends Fragment {
             @Override
             protected void populateViewHolder(KidsNestViewHolder viewHolder, final KidsNestModel model, final int position) {
                 viewHolder.textViewKidsNestListTitle.setText(model.getName());
-//                viewHolder.textViewNoticeListSource.setText(model.getSource());
+                viewHolder.textViewKidsNestListEmail.setText(model.getEmail());
 //                viewHolder.textViewNoticeListSince.setReferenceTime(new Date((model.getTimestamp() * -1)).getTime());
                 Picasso.with(getActivity()).load(model.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(viewHolder.imageViewKidsNestListImage);
 
@@ -73,20 +73,22 @@ public class KidsNestFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         //firebasenewsRecycleAdapter.getRef(position).removeValue();
-                        openKidsNestDetailActivity();
+                        openKidsNestDetailActivity(model.getName(), model.getId(), model.getEmail(), model.getPhone(), model.getContactPerson(), model.getContactEmail(), model.getContactPhone(), model.imageUrl);
                     }
                 });
             }
 
-            private void openKidsNestDetailActivity() {
-//                Intent newsIntent = new Intent(getActivity(), NoticeDetailActivity.class);
-//                newsIntent.putExtra("titleKey", title);
-//                newsIntent.putExtra("authorKey", source);
-//                newsIntent.putExtra("timestampKey", timestamp);
-//                newsIntent.putExtra("contentKey", description);
-//                newsIntent.putExtra("imageKey", imageUrl);
-//
-//                startActivity(newsIntent);
+            private void openKidsNestDetailActivity(String name, String id, String email, String phone, String contact_person, String contact_email, String contact_phone, String imageUrl) {
+                Intent kidsNestIntent = new Intent(getActivity(), KidsNestDetailActivity.class);
+                kidsNestIntent.putExtra("nameKey", name);
+                kidsNestIntent.putExtra("idKey", id);
+                kidsNestIntent.putExtra("emailKey", email);
+                kidsNestIntent.putExtra("phoneKey", phone);
+                kidsNestIntent.putExtra("contactPersonKey", contact_person);
+                kidsNestIntent.putExtra("contactEmailKey", contact_email);
+                kidsNestIntent.putExtra("contactPhoneKey", contact_phone);
+                kidsNestIntent.putExtra("imageKey", imageUrl);
+                startActivity(kidsNestIntent);
             }
         };
         rv.setLayoutManager(linearLayoutManager);

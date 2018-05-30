@@ -12,7 +12,7 @@ import com.github.curioustechizen.ago.RelativeTimeTextView;
  */
 
 public class KidsNestViewHolder extends RecyclerView.ViewHolder {
-    TextView textViewKidsNestListTitle, textViewNoticeListSource;
+    TextView textViewKidsNestListTitle, textViewKidsNestListEmail;
     ImageView imageViewKidsNestListImage;
     RelativeTimeTextView textViewNoticeListSince;
     View mView;
@@ -22,7 +22,7 @@ public class KidsNestViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         this.mView = itemView;
         textViewKidsNestListTitle = (TextView) itemView.findViewById(R.id.textViewKidsNestListTitle);
-//        textViewNoticeListSource = (TextView) itemView.findViewById(R.id.textViewNewsListAuthor);
+        textViewKidsNestListEmail = (TextView) itemView.findViewById(R.id.textViewKidsNestListEmail);
 //        textViewNoticeListSince = (RelativeTimeTextView) itemView.findViewById(R.id.textViewNoticeListSince);
         imageViewKidsNestListImage = (ImageView) itemView.findViewById(R.id.imageViewKidsNestListImage);
     }
